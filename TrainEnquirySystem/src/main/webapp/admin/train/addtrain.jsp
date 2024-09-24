@@ -6,9 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Train Inquiry System</title>
-    <!-- Bootstrap CSS -->
+	<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Tom Select CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet"/>
+	
+	<!-- Tom Select JS -->
+	<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <!-- Custom CSS -->
     <style>
         body {
@@ -98,7 +102,7 @@
 
         /* Content Section */
         .content {
-            margin: 70px; /* Header height */
+            margin-top: 70px; /* Header height */
             padding: 20px;
             background-color: #1e1f29;
             flex: 1;
@@ -215,7 +219,6 @@
 	</div>
 
 
-    <!-- Main Content -->
     <div class="main-content">
 
         <!-- Header -->
@@ -232,18 +235,18 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <form>
+                        <form action="addtrain" method="post">
                             <div class="mb-3">
                                 <label for="trainName" class="form-label">Train Name</label>
-                                <input type="text" class="form-control" id="trainName" placeholder="Enter train name">
+                                <input type="text" name="trainName" class="form-control" id="trainName" placeholder="Enter train name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="trainNumber" class="form-label">Train Number</label>
-                                <input type="text" class="form-control" id="trainNumber" placeholder="Enter train number">
+                                <input type="text" name="trainNumber" class="form-control" id="trainNumber" placeholder="Enter train number" required>
                             </div>
                             <div class="mb-3">
                                <label for="fromStation" class="form-label">From Station</label>
-								<select class="form-control" id="searchableSelect" style="width: 100%;">
+								<select name="fromStation" class="form-control" id="fromStation" style="width: 100%;" required>
 								    <option value="">Select a station</option>
 								    <option value="station1">Station 1</option>
 								    <option value="station2">Station 2</option>
@@ -251,16 +254,24 @@
 								    <!-- Add more options as needed -->
 								</select>
                             <div class="mb-3">
-                                <label for="toStation" class="form-label">To Station</label>
-                                <input type="text" class="form-control" id="toStation" placeholder="Enter destination station">
+                                <label name="toStation" for="toStation" class="form-label">To Station</label>
+							    <select id="toStation" class="form-control" style="width: 100%;" required>
+							   		<option value="">Select a station</option>
+							        <option value="New York">New York</option>
+							        <option value="Los Angeles">Los Angeles</option>
+							        <option value="Chicago">Chicago</option>
+							        <option value="Houston">Houston</option>
+							        <option value="Phoenix">Phoenix</option>
+							    </select>
+                                
                             </div>
                             <div class="mb-3">
                                 <label for="departureTime" class="form-label">Departure Time</label>
-                                <input type="time" class="form-control" id="departureTime">
+                                <input name="departureTime" type="time" class="form-control" id="departureTime" required>
                             </div>
                             <div class="mb-3">
                                 <label for="arrivalTime" class="form-label">Arrival Time</label>
-                                <input type="time" class="form-control" id="arrivalTime">
+                                <input name="arrivalTime" type="time" class="form-control" id="arrivalTime" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Train</button>
                         </form>
@@ -276,19 +287,23 @@
         </div>
 
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
-	
-	<script>
-    $(document).ready(function() {
-        $('#searchableSelect').select2({
-            placeholder: "Select a station",
-            allowClear: true
-        });
+<script>
+    new TomSelect("#fromStation",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+    new TomSelect("#toStation",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
     });
 </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

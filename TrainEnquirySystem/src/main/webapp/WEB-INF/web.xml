@@ -9,4 +9,17 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  
+  <!-- add train -->
+  <servlet>
+  	<servlet-name>addtrain</servlet-name>
+  	<jsp-file>/controller/addtraincontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addtrain</servlet-name>
+  	<url-pattern>/admin/train/addtraincontroller</url-pattern>
+  </servlet-mapping>
+	 
+  
 </web-app>
