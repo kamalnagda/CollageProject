@@ -8,7 +8,7 @@ public class Train {
     private String toStation;
     private String departureTime;
     private String arrivalTime;
-    private String classType;
+    private String TrainType;
 	public int getTrainId() {
 		return trainId;
 	}
@@ -51,11 +51,11 @@ public class Train {
 	public void setArrivalTime(String arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
-	public String getClassType() {
-		return classType;
+	public String getTrainType() {
+		return TrainType;
 	}
-	public void setClassType(String classType) {
-		this.classType = classType;
+	public void setTrainType(String trainType) {
+		TrainType = trainType;
 	}
     
 }

@@ -254,8 +254,8 @@
 								    <!-- Add more options as needed -->
 								</select>
                             <div class="mb-3">
-                                <label name="toStation" for="toStation" class="form-label">To Station</label>
-							    <select id="toStation" class="form-control" style="width: 100%;" required>
+                                <label for="toStation" class="form-label">To Station</label>
+							    <select name="toStation" id="toStation" class="form-control" style="width: 100%;" required>
 							   		<option value="">Select a station</option>
 							        <option value="New York">New York</option>
 							        <option value="Los Angeles">Los Angeles</option>
@@ -263,7 +263,6 @@
 							        <option value="Houston">Houston</option>
 							        <option value="Phoenix">Phoenix</option>
 							    </select>
-                                
                             </div>
                             <div class="mb-3">
                                 <label for="departureTime" class="form-label">Departure Time</label>
@@ -272,6 +271,17 @@
                             <div class="mb-3">
                                 <label for="arrivalTime" class="form-label">Arrival Time</label>
                                 <input name="arrivalTime" type="time" class="form-control" id="arrivalTime" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="traintype" class="form-label">Train type</label>
+							    <select  name="traintype" id="traintype" class="form-control" style="width: 100%;" required>
+							   		<option value="">Select a station</option>
+							        <option value="express">Express</option>
+							        <option value="demu">Demu</option>
+							        <option value="Chicago">Chicago</option>
+							        <option value="Houston">Houston</option>
+							        <option value="Phoenix">Phoenix</option>
+							    </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Train</button>
                         </form>

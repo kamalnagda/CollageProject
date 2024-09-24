@@ -1,12 +1,20 @@
+<%@page import="com.trainenquirysystem.daoImpl.TrainDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-<jsp:useBean class="com.trainenquirysystem.pojo.Train" id="p" scope="page" ></jsp:useBean>
-<jsp:setProperty property="*" name="p"/>
+<%@page import="com.trainenquirysystem.daoImpl.TrainDaoImpl"%>
+<jsp:useBean class="com.trainenquirysystem.pojo.Train" id="train" scope="page" ></jsp:useBean>
+<jsp:setProperty property="*" name="train"/>
 
 <%
 
- String name  = p.getTrainName();
-out.println("Train Name: " + name);
+	TrainDaoImpl daoobj = new TrainDaoImpl();
+	if(daoobj.addTrain(train))
+	{
+		
+	}
+	else
+	{
+		
+	}
 
 %>
