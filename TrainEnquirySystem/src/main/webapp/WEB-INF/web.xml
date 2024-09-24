@@ -11,13 +11,32 @@
   </welcome-file-list>
   
   
+    <!-- admin panal -->
+  <servlet>
+  	<servlet-name>admin</servlet-name>
+  	<jsp-file>/admin/home.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>admin</servlet-name>
+  	<url-pattern>/adminpanal</url-pattern>
+  </servlet-mapping>
+  
   <!-- add train -->
   <servlet>
-  	<servlet-name>addtrain</servlet-name>
+  	<servlet-name>addtrainview</servlet-name>
+  	<jsp-file>/admin/train/addtrain.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addtrainview</servlet-name>
+  	<url-pattern>/addtrain</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>addtraincontroller</servlet-name>
   	<jsp-file>/controller/addtraincontroller.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>addtrain</servlet-name>
+  	<servlet-name>addtraincontroller</servlet-name>
   	<url-pattern>/admin/train/addtraincontroller</url-pattern>
   </servlet-mapping>
 	 

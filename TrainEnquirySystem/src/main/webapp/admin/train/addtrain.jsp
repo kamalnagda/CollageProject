@@ -156,7 +156,7 @@
 	    <a href="#trainSubMenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Train</a>
 	    <div class="collapse" id="trainSubMenu">
 	        <div class="sub-menu">
-	            <a href="#">Add Train</a>
+	            <a href="addtrain">Add Train</a>
 	            <a href="#">Update Train</a>
 	            <a href="#">Delete Train</a>
 	            <a href="#">View Trains</a>

@@ -120,7 +120,7 @@
                         <a class="nav-link" href="#">PNR Status</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Schedule</a>
+                        <a class="nav-link" href="adminpanal">Admin</a>
                     </li>
                 </ul>
             </div>
