@@ -6,8 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Train Inquiry System</title>
-    <!-- Bootstrap CSS -->
+	<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tom Select CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet"/>
+	
+	<!-- Tom Select JS -->
+	<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <!-- Custom CSS -->
     <style>
         body {
@@ -165,7 +170,7 @@
 	    <a href="#stationSubMenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Station</a>
 	    <div class="collapse" id="stationSubMenu">
 	        <div class="sub-menu">
-	            <a href="addstation">Add Station</a>
+	            <a href="addStation">Add Station</a>
 	            <a href="#">Update Station</a>
 	            <a href="#">Delete Station</a>
 	            <a href="#">View Stations</a>
@@ -214,12 +219,11 @@
 	</div>
 
 
-    <!-- Main Content -->
     <div class="main-content">
 
         <!-- Header -->
         <div class="header">
-            <h3>Welcome, Admin</h3>
+            <h3>Add New Station</h3>
             <div>
                 <span>Admin Actions</span>
                 <!-- You can add more header elements like notifications or profile dropdown here -->
@@ -231,9 +235,27 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Dashboard Overview</h4>
-                        <p>This is where you can manage trains, users, and other administrative tasks.</p>
-                        <!-- Add your dashboard content here -->
+                        <form action="addstation" method="post">
+                            <div class="mb-3">
+                                <label for="stationName" class="form-label">Station Name</label>
+                                <input type="text" name="stationName" class="form-control" id="stationName" placeholder="Enter station name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="stationCode" class="form-label">Station Code</label>
+                                <input type="text" name="stationCode" class="form-control" id="stationCode" placeholder="Enter station code" required>
+                            </div>
+                             <div class="mb-3">
+                                <label for="location" class="form-label">Location</label>
+                                <input type="text" name="location" class="form-control" id="location" placeholder="Enter location" required>
+                            </div>
+                             <div class="mb-3">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" name="state" class="form-control" id="state" placeholder="Enter State" required>
+                            </div>
+                            
+                            
+                            <button type="submit" class="btn btn-primary">Add Station</button>
+                        </form>
                     </div>
                 </div>
                 <!-- More content can be added here -->
@@ -244,8 +266,24 @@
         <div class="footer">
             &copy; 2024 Train Inquiry System. All Rights Reserved.
         </div>
-    </div>
 
+    </div>
+<script>
+    new TomSelect("#fromStation",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+    new TomSelect("#toStation",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+</script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

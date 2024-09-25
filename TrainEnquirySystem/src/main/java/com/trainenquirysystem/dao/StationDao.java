@@ -8,7 +8,7 @@ public interface StationDao {
 
 	
 	    // Method to add a new station
-	    void addStation(Station station);
+	    Boolean addStation(Station station);
 
 	    // Method to get a station by its code
 	    Station getStationByCode(String stationCode);

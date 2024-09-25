@@ -7,6 +7,7 @@
 
 <%
 
+
 	TrainDaoImpl daoobj = new TrainDaoImpl();
 	if(daoobj.addTrain(train))
 	{

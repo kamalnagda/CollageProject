@@ -37,8 +37,27 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>addtraincontroller</servlet-name>
-  	<url-pattern>/admin/train/addtraincontroller</url-pattern>
+  	<url-pattern>/addtraincontroller</url-pattern>
   </servlet-mapping>
-	 
+  
+	 <!-- add station -->
+	 <servlet>
+  	<servlet-name>addstationview</servlet-name>
+  	<jsp-file>/admin/station/addstation.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addstationview</servlet-name>
+  	<url-pattern>/addstation</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>addstationcontroller</servlet-name>
+  	<jsp-file>/controller/addstationcontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addstationcontroller</servlet-name>
+  	<url-pattern>/addstationcontroller</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
