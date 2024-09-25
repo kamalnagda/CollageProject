@@ -2,6 +2,7 @@ package com.trainenquirysystem.daoImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class TrainDaoImpl implements TrainDao {
 			ps.setString(2, train.getTrainName());
 			ps.setString(3, train.getFromStation());
 			ps.setString(4, train.getToStation());
-			ps.setString(5, train.getArrivalTime());
+			ps.setString(5, train.getReachedTime());
 			ps.setString(6, train.getDepartureTime());
 			ps.setString(7, train.getTrainType());
 
@@ -41,8 +42,34 @@ public class TrainDaoImpl implements TrainDao {
 
 	@Override
 	public Train getTrain(String trainNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		Train train = new Train();
+		try (Connection con = DbConnection.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM Train WHERE 'trainNumber'= ?");
+			ps.setString(1,trainNumber);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.isBeforeFirst()) {
+				
+				train.setTrainId(rs.getString("traiId"));
+				train.setTrainNumber(rs.getString("traiNumber"));
+				train.setTrainName(rs.getString("trainName"));
+				train.setFromStation(rs.getString("fromStation"));
+				train.setToStation(rs.getString("toStation"));
+				train.setDepartureTime(rs.getString("departureTime"));
+				train.setReachedTime(rs.getString("reachedTime"));
+				train.setTrainType(rs.getString("trainType"));
+				return train;
+			}
+			else
+			{
+				return null;
+			}
+			
+
+		} catch (SQLException | NullPointerException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override

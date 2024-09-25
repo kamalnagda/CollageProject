@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -235,7 +235,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <form action="addtrain" method="post">
+                        <form action="addtraincontroller" method="post">
                             <div class="mb-3">
                                 <label for="trainName" class="form-label">Train Name</label>
                                 <input type="text" name="trainName" class="form-control" id="trainName" placeholder="Enter train name" required>
@@ -269,8 +269,8 @@
                                 <input name="departureTime" type="time" class="form-control" id="departureTime" required>
                             </div>
                             <div class="mb-3">
-                                <label for="arrivalTime" class="form-label">Arrival Time</label>
-                                <input name="arrivalTime" type="time" class="form-control" id="arrivalTime" required>
+                                <label for="reachedTime" class="form-label">Reached Time</label>
+                                <input name="reachedTime" type="time" class="form-control" id="reachedTime" required>
                             </div>
                             <div class="mb-3">
                                 <label for="traintype" class="form-label">Train type</label>

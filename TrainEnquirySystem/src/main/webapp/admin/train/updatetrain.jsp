@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Train Inquiry System</title>
-    <!-- Bootstrap CSS -->
+	<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tom Select CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet"/>
+	
+	<!-- Tom Select JS -->
+	<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <!-- Custom CSS -->
     <style>
         body {
@@ -152,7 +159,7 @@
 	    <div class="collapse" id="trainSubMenu">
 	        <div class="sub-menu">
 	            <a href="addtrain">Add Train</a>
-	            <a href="updatetrain">Update Train</a>
+	            <a href="#">Update Train</a>
 	            <a href="#">Delete Train</a>
 	            <a href="#">View Trains</a>
 	        </div>
@@ -165,7 +172,7 @@
 	    <a href="#stationSubMenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Station</a>
 	    <div class="collapse" id="stationSubMenu">
 	        <div class="sub-menu">
-	            <a href="addstation">Add Station</a>
+	            <a href="#">Add Station</a>
 	            <a href="#">Update Station</a>
 	            <a href="#">Delete Station</a>
 	            <a href="#">View Stations</a>
@@ -214,12 +221,11 @@
 	</div>
 
 
-    <!-- Main Content -->
     <div class="main-content">
 
         <!-- Header -->
         <div class="header">
-            <h3>Welcome, Admin</h3>
+            <h3>Update Train</h3>
             <div>
                 <span>Admin Actions</span>
                 <!-- You can add more header elements like notifications or profile dropdown here -->
@@ -230,12 +236,21 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <h4>Dashboard Overview</h4>
-                        <p>This is where you can manage trains, users, and other administrative tasks.</p>
-                        <!-- Add your dashboard content here -->
-                    </div>
+                    
+                        <form action="Searchtraincontroller" method="Post">
+                            <div class="mb-3 col-6">
+                                <label for="trainNumber" class="form-label">Train Number</label>
+								<input type="text" class="form-control" id="trainNumber" name="trainNumber" placeholder="Enter train number" required>
+                            </div>
+                            <div class="">
+                            	<button type="submit" class="btn btn-primary">Search Train</button>
+                            </div>
+                        </form>
+                    
                 </div>
+
+                
+
                 <!-- More content can be added here -->
             </div>
         </div>
@@ -244,8 +259,17 @@
         <div class="footer">
             &copy; 2024 Train Inquiry System. All Rights Reserved.
         </div>
-    </div>
 
+    </div>
+<script>
+    new TomSelect("#trainNumbertest",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+</script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

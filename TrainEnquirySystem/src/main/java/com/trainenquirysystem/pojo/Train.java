@@ -1,18 +1,18 @@
 package com.trainenquirysystem.pojo;
 
 public class Train {
-	private int trainId;
+	private String trainId;
     private String trainNumber;
     private String trainName;
     private String fromStation;
     private String toStation;
     private String departureTime;
-    private String arrivalTime;
+    private String reachedTime;
     private String TrainType;
-	public int getTrainId() {
+	public String getTrainId() {
 		return trainId;
 	}
-	public void setTrainId(int trainId) {
+	public void setTrainId(String trainId) {
 		this.trainId = trainId;
 	}
 	public String getTrainNumber() {
@@ -45,11 +45,11 @@ public class Train {
 	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
-	public String getArrivalTime() {
-		return arrivalTime;
+	public String getReachedTime() {
+		return reachedTime;
 	}
-	public void setArrivalTime(String arrivalTime) {
-		this.arrivalTime = arrivalTime;
+	public void setReachedTime(String reachedTime) {
+		this.reachedTime = reachedTime;
 	}
 	public String getTrainType() {
 		return TrainType;

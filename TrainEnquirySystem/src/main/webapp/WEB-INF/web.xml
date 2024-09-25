@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+ xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" 
+ id="WebApp_ID" version="5.0">
   <display-name>TrainEnquirySystem</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -20,7 +22,7 @@
   	<servlet-name>admin</servlet-name>
   	<url-pattern>/adminpanal</url-pattern>
   </servlet-mapping>
-  
+  <!-- train -->
   <!-- add train -->
   <servlet>
   	<servlet-name>addtrainview</servlet-name>
@@ -40,10 +42,39 @@
   	<url-pattern>/addtraincontroller</url-pattern>
   </servlet-mapping>
   
+    <!-- update train -->
+  <servlet>
+  	<servlet-name>updatetrainview</servlet-name>
+  	<jsp-file>/admin/train/updatetrain.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>updatetrainview</servlet-name>
+  	<url-pattern>/updatetrain</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>updatetraincontroller</servlet-name>
+  	<jsp-file>/controller/updatetraincontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>updatetraincontroller</servlet-name>
+  	<url-pattern>/updatetraincontroller</url-pattern>
+  </servlet-mapping>
+  
+      <!-- Search train -->
+  <servlet>
+  	<servlet-name>searchtrain</servlet-name>
+  	<jsp-file>/controller/searchtraincontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>searchtrain</servlet-name>
+  	<url-pattern>/Searchtraincontroller</url-pattern>
+  </servlet-mapping>
+  
 	 <!-- add station -->
-	 <servlet>
-  	<servlet-name>addstationview</servlet-name>
-  	<jsp-file>/admin/station/addstation.jsp</jsp-file>
+  <servlet>
+ 	<servlet-name>addstationview</servlet-name>
+ 	<jsp-file>/admin/station/addstation.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
   	<servlet-name>addstationview</servlet-name>
