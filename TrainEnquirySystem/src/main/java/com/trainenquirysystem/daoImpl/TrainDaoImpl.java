@@ -16,7 +16,7 @@ public class TrainDaoImpl implements TrainDao {
 	public boolean addTrain(Train train) {
 		try (Connection con = DbConnection.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("Insert Into Train (trainnumber , trainname , fromstation , "
-					+ "tostation ,arrivaltime , departuretime , traintype) values(?,?,?,?,?,?,?)");
+					+ "tostation ,reachedtime , departuretime , traintype) values(?,?,?,?,?,?,?)");
 			ps.setString(1, train.getTrainNumber());
 			ps.setString(2, train.getTrainName());
 			ps.setString(3, train.getFromStation());
@@ -26,7 +26,6 @@ public class TrainDaoImpl implements TrainDao {
 			ps.setString(7, train.getTrainType());
 
 			int count = ps.executeUpdate();
-			System.out.println(count);
 			if (count > 0) {
 				return true;
 			} else {
@@ -79,8 +78,30 @@ public class TrainDaoImpl implements TrainDao {
 	}
 
 	@Override
-	public void updateTrain(Train train) {
-		// TODO Auto-generated method stub
+	public boolean updateTrain(Train train) {
+		try (Connection con = DbConnection.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("UPDATE Train SET trainnumber = ?, trainname = ?, fromstation = ?, tostation = ?, reachedtime = ?,"
+					+ " departuretime = ?, traintype = ? WHERE trainnid = ?");
+			ps.setString(1, train.getTrainNumber());
+			ps.setString(2, train.getTrainName());
+			ps.setString(3, train.getFromStation());
+			ps.setString(4, train.getToStation());
+			ps.setString(5, train.getReachedTime());
+			ps.setString(6, train.getDepartureTime());
+			ps.setString(7, train.getTrainType());
+			ps.setString(8, train.getTrainId());
+
+			int count = ps.executeUpdate();
+			if (count > 0) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (SQLException | NullPointerException e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 

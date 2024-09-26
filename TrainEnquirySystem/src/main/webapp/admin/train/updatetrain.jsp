@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -236,17 +237,60 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    
-                        <form action="Searchtraincontroller" method="Post">
+                    <form action="Searchtraincontroller" method="Post">
                             <div class="mb-3 col-6">
                                 <label for="trainNumber" class="form-label">Train Number</label>
 								<input type="text" class="form-control" id="trainNumber" name="trainNumber" placeholder="Enter train number" required>
+								<input type="hidden" name="source" value="updatetrain">
                             </div>
-                            <div class="">
+                            <div class="col-6">
                             	<button type="submit" class="btn btn-primary">Search Train</button>
                             </div>
                         </form>
-                    
+                </div>
+                <div class="row">
+                	<div class="col-12">
+                	        <c:if test="${not empty message}">
+							    <p class="p-5 text-center">${message}</p>
+							</c:if>
+                		<c:if test="${not empty train}">
+                			<h3 class="text-center">Insert New Data For Train</h3>
+					        <form action="updatetraincontroller" method="POST">
+					        	<div class="mb-3">
+							        <label for="trainId" class="form-label">Train Id</label>
+							        <input type="text" class="form-control" id="trainId" name="trainId" value="${train.trainId}" readonly >
+							    </div>
+							    <div class="mb-3">
+							        <label for="trainName" class="form-label">Train Name</label>
+							        <input type="text" class="form-control" id="trainName" name="trainName" value="${train.trainName}">
+							    </div>
+							    <div class="mb-3">
+							        <label for="trainNumber" class="form-label">Train Number</label>
+							        <input type="text" class="form-control" id="trainNumber" name="trainNumber" value="${train.trainNumber}">
+							    </div>
+							    <div class="mb-3">
+							        <label for="fromStation" class="form-label">From Station</label>
+							        <input type="text" class="form-control" id="fromStation" name="fromStation" value="${train.fromStation}">
+							    </div>
+							    <div class="mb-3">
+							        <label for="toStation" class="form-label">To Station</label>
+							        <input type="text" class="form-control" id="toStation" name="toStation" value="${train.toStation}">
+							    </div>
+							    <div class="mb-3">
+							        <label for="departureTime" class="form-label">Departure Time</label>
+							        <input type="time" class="form-control" id="departureTime" name="departureTime" value="${train.departureTime}">
+							    </div>
+							    <div class="mb-3">
+							        <label for="arrivalTime" class="form-label">Arrival Time</label>
+							        <input type="time" class="form-control" id="arrivalTime" name="arrivalTime" value="${train.arrivalTime}">
+							    </div>
+							    <button type="submit" class="btn btn-primary">Update Train</button>
+							</form>
+					    </c:if>
+						<c:if test="${empty train}">
+						    <p class="p-5 text-center">No train details found.</p>
+						</c:if>
+                	</div>
                 </div>
 
                 
@@ -262,7 +306,14 @@
 
     </div>
 <script>
-    new TomSelect("#trainNumbertest",{
+    new TomSelect("#fromStation",{
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        }
+    });
+    new TomSelect("#toStation",{
         create: false,
         sortField: {
             field: "text",

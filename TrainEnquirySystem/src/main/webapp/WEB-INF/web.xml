@@ -61,6 +61,25 @@
   	<url-pattern>/updatetraincontroller</url-pattern>
   </servlet-mapping>
   
+      <!-- Delete train -->
+  <servlet>
+  	<servlet-name>deletetrainview</servlet-name>
+  	<jsp-file>/admin/train/deletetrain.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deletetrainview</servlet-name>
+  	<url-pattern>/deletetrain</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>deletetraincontroller</servlet-name>
+  	<jsp-file>/controller/deletetraincontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deletetraincontroller</servlet-name>
+  	<url-pattern>/deletetraincontroller</url-pattern>
+  </servlet-mapping>
+  
       <!-- Search train -->
   <servlet>
   	<servlet-name>searchtrain</servlet-name>

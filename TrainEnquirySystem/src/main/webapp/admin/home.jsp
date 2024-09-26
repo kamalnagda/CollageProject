@@ -153,7 +153,7 @@
 	        <div class="sub-menu">
 	            <a href="addtrain">Add Train</a>
 	            <a href="updatetrain">Update Train</a>
-	            <a href="#">Delete Train</a>
+	            <a href="deletetrain">Delete Train</a>
 	            <a href="#">View Trains</a>
 	        </div>
 	    </div>
