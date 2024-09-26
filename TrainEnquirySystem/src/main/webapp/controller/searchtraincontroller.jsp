@@ -8,13 +8,14 @@
 <%
 
 	String trainNumber = request.getParameter("trainNumber");
+	String destination = request.getParameter("source");
 
 	TrainDaoImpl daoObj = new TrainDaoImpl();
 	
 	Train train = daoObj.getTrain(trainNumber);
     request.setAttribute("train", train);
 
-    RequestDispatcher dispatcher = request.getRequestDispatcher("updatetrain");
+    RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
     dispatcher.forward(request, response);
 
 %>	
