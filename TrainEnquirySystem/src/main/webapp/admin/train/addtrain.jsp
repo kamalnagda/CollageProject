@@ -1,5 +1,6 @@
  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,6 +236,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+                        <c:if test="${not empty message}">
+						    <p class="p-5 text-center">${message}</p>
+						</c:if>
                         <form action="addtraincontroller" method="post">
                             <div class="mb-3">
                                 <label for="trainName" class="form-label">Train Name</label>
@@ -274,7 +278,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="traintype" class="form-label">Train type</label>
-							    <select  name="traintype" id="traintype" class="form-control" style="width: 100%;" required>
+							    <select  name="trainType" id="traintype" class="form-control" style="width: 100%;" required>
 							   		<option value="">Select a station</option>
 							        <option value="express">Express</option>
 							        <option value="demu">Demu</option>
@@ -287,7 +291,6 @@
                         </form>
                     </div>
                 </div>
-                <!-- More content can be added here -->
             </div>
         </div>
 

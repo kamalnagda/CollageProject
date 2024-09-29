@@ -10,11 +10,14 @@
 	TrainDaoImpl daoobj = new TrainDaoImpl();
 	if(daoobj.addTrain(train))
 	{
-		
+	    request.setAttribute("message", "Train Added successfully");
 	}
 	else
 	{
-		out.println("working");
+		request.setAttribute("message", "Train Adition Failed");
 	}
+
+    RequestDispatcher dispatcher = request.getRequestDispatcher("addtrain");
+    dispatcher.forward(request, response);
 
 %>

@@ -10,5 +10,5 @@ public interface TrainDao {
     Train getTrain(String trainNumber);
     List<Train> getAllTrains();
     boolean updateTrain(Train train);
-    void deleteTrain(String trainNumber);
+    boolean deleteTrain(String trainNumber);
 }

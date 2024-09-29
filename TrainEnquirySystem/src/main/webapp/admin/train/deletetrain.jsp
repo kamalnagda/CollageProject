@@ -143,6 +143,20 @@
                 width: 100%;
             }
         }
+        
+                .table {
+            color: #e0e0e0;
+        }
+        .table thead th {
+            background-color: #333333;
+            color: #e0e0e0;
+        }
+        .table tbody tr {
+            background-color: #222222;
+        }
+        .table tbody tr:hover {
+            background-color: #444444;
+        }
     </style>
 </head>
 <body>
@@ -250,52 +264,67 @@
                 </div>
                 <div class="row">
                 	<div class="col-12">
-                	        <c:if test="${not empty message}">
-							    <p class="p-5 text-center">${message}</p>
-							</c:if>
+               	        <c:if test="${not empty message}">
+						    <p class="p-5 text-center">${message}</p>
+						</c:if>
                 		<c:if test="${not empty train}">
-                			<h3 class="text-center">Insert New Data For Train</h3>
-					        <form action="updatetraincontroller" method="POST">
-					        	<div class="mb-3">
-							        <label for="trainId" class="form-label">Train Id</label>
-							        <input type="text" class="form-control" id="trainId" name="trainId" value="${train.trainId}" readonly >
-							    </div>
-							    <div class="mb-3">
-							        <label for="trainName" class="form-label">Train Name</label>
-							        <input type="text" class="form-control" id="trainName" name="trainName" value="${train.trainName}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="trainNumber" class="form-label">Train Number</label>
-							        <input type="text" class="form-control" id="trainNumber" name="trainNumber" value="${train.trainNumber}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="fromStation" class="form-label">From Station</label>
-							        <input type="text" class="form-control" id="fromStation" name="fromStation" value="${train.fromStation}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="toStation" class="form-label">To Station</label>
-							        <input type="text" class="form-control" id="toStation" name="toStation" value="${train.toStation}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="departureTime" class="form-label">Departure Time</label>
-							        <input type="time" class="form-control" id="departureTime" name="departureTime" value="${train.departureTime}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="arrivalTime" class="form-label">Arrival Time</label>
-							        <input type="time" class="form-control" id="arrivalTime" name="arrivalTime" value="${train.arrivalTime}">
-							    </div>
-							    <button type="submit" class="btn btn-primary">Update Train</button>
-							</form>
+					        <h2 class="text-center mb-4">Train Details</h2>
+					        <div class="table-responsive">
+					            <table class="table table-dark table-bordered table-hover">
+					                <thead>
+					                    <tr>
+					                        <th scope="col">Train Number</th>
+					                        <th scope="col">Train Name</th>
+					                        <th scope="col">From Station</th>
+					                        <th scope="col">To Station</th>
+					                        <th scope="col">Arrival Time</th>
+					                        <th scope="col">Reached Time</th>
+					                        <th scope="col">Train Type</th>
+					                        <th>Action</th>
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>${train.trainNumber}</td>
+					                        <td>${train.trainName}</td>
+					                        <td>${train.fromStation}</td>
+					                        <td>${train.toStation}</td>
+					                        <td>${train.departureTime}</td>
+					                        <td>${train.reachedTime}</td>
+					                        <td>${train.trainType}</td>
+					                        <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></td>
+					                        
+					                    </tr>
+					                </tbody>
+					            </table>
+					        </div>
 					    </c:if>
+					     <!-- Modal -->
+						<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content" style="background-color: #333; color: #fff;"> <!-- Dark theme styles -->
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+						        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						        Are you sure you want to delete this item?
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+		        				<form action="deletetraincontroller" method="get">
+	                        		<input type="hidden" value="${train.trainId}" name="trainId">
+	                        		<button type="submit" class="btn btn-danger">Delete</button>
+	                        	</form>
+						      </div>
+						    </div>
+						  </div>
+						</div>
 						<c:if test="${empty train}">
 						    <p class="p-5 text-center">No train details found.</p>
 						</c:if>
                 	</div>
                 </div>
-
-                
-
-                <!-- More content can be added here -->
             </div>
         </div>
 
@@ -305,23 +334,12 @@
         </div>
 
     </div>
-<script>
-    new TomSelect("#fromStation",{
-        create: false,
-        sortField: {
-            field: "text",
-            direction: "asc"
-        }
-    });
-    new TomSelect("#toStation",{
-        create: false,
-        sortField: {
-            field: "text",
-            direction: "asc"
-        }
-    });
-</script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    
+
+    </script>
 </body>
 </html>

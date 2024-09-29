@@ -143,6 +143,20 @@
                 width: 100%;
             }
         }
+        
+                .table {
+            color: #e0e0e0;
+        }
+        .table thead th {
+            background-color: #333333;
+            color: #e0e0e0;
+        }
+        .table tbody tr {
+            background-color: #222222;
+        }
+        .table tbody tr:hover {
+            background-color: #444444;
+        }
     </style>
 </head>
 <body>
@@ -226,7 +240,7 @@
 
         <!-- Header -->
         <div class="header">
-            <h3>Update Train</h3>
+            <h3>All Trains</h3>
             <div>
                 <span>Admin Actions</span>
                 <!-- You can add more header elements like notifications or profile dropdown here -->
@@ -237,66 +251,37 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="Searchtraincontroller" method="Post">
-                            <div class="mb-3 col-6">
-                                <label for="trainNumber" class="form-label">Train Number</label>
-								<input type="text" class="form-control" id="trainNumber" name="trainNumber" placeholder="Enter train number" required>
-								<input type="hidden" name="source" value="updatetrain">
-                            </div>
-                            <div class="col-6">
-                            	<button type="submit" class="btn btn-primary">Search Train</button>
-                            </div>
-                        </form>
-                </div>
-                <div class="row m-5">
                 	<div class="col-12">
-                	        <c:if test="${not empty message}">
-							    <p class="p-5 text-center">${message}</p>
-							</c:if>
                 		<c:if test="${not empty train}">
-                			<h3 class="text-center">Insert New Data For Train</h3>
-					        <form action="updatetraincontroller" method="POST">
-					        	<div class="mb-3">
-							        <label for="trainId" class="form-label">Train Id</label>
-							        <input type="text" class="form-control" id="trainId" name="trainId" value="${train.trainId}" readonly >
-							    </div>
-							    <div class="mb-3">
-							        <label for="trainName" class="form-label">Train Name</label>
-							        <input type="text" class="form-control" id="trainName" name="trainName" value="${train.trainName}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="trainNumber" class="form-label">Train Number</label>
-							        <input type="text" class="form-control" id="trainNumber" name="trainNumber" value="${train.trainNumber}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="fromStation" class="form-label">From Station</label>
-							        <input type="text" class="form-control" id="fromStation" name="fromStation" value="${train.fromStation}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="toStation" class="form-label">To Station</label>
-							        <input type="text" class="form-control" id="toStation" name="toStation" value="${train.toStation}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="departureTime" class="form-label">Departure Time</label>
-							        <input type="time" class="form-control" id="departureTime" name="departureTime" value="${train.departureTime}">
-							    </div>
-							    <div class="mb-3">
-							        <label for="arrivalTime" class="form-label">Reached Time</label>
-							        <input type="time" class="form-control" id="reachedTime" name="reachedTime" value="${train.reachedTime}">
-							    </div>
-	                            <div class="mb-3">
-	                                <label for="traintype" class="form-label">Train type</label>
-								    <select  name="trainType" id="traintype" value="${train.trainType}" class="form-control" style="width: 100%;" required>
-								   		<option value="">Select a station</option>
-								        <option value="express">Express</option>
-								        <option value="demu">Demu</option>
-								        <option value="Chicago">Chicago</option>
-								        <option value="Houston">Houston</option>
-								        <option value="Phoenix">Phoenix</option>
-								    </select>
-	                            </div>							    
-							    <button type="submit" class="btn btn-primary">Update Train</button>
-							</form>
+					        <h2 class="text-center mb-4">Train Details</h2>
+					        <div class="table-responsive">
+					            <table class="table table-dark table-bordered table-hover">
+					                <thead>
+					                    <tr>
+					                        <th scope="col">Train Number</th>
+					                        <th scope="col">Train Name</th>
+					                        <th scope="col">From Station</th>
+					                        <th scope="col">To Station</th>
+					                        <th scope="col">Arrival Time</th>
+					                        <th scope="col">Reached Time</th>
+					                        <th scope="col">Train Type</th>
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <c:forEach var="train" items="${train}">
+					                        <tr>
+					                            <td>${train.trainNumber}</td>
+					                            <td>${train.trainName}</td>
+					                            <td>${train.fromStation}</td>
+					                            <td>${train.toStation}</td>
+					                            <td>${train.departureTime}</td>
+					                            <td>${train.reachedTime}</td>
+					                            <td>${train.trainType}</td>
+					                        </tr>
+					                    </c:forEach>
+					                </tbody>
+					            </table>
+					        </div>
 					    </c:if>
 						<c:if test="${empty train}">
 						    <p class="p-5 text-center">No train details found.</p>

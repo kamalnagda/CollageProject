@@ -8,7 +8,8 @@ public class Train {
     private String toStation;
     private String departureTime;
     private String reachedTime;
-    private String TrainType;
+    private String trainType;
+    private boolean status;
 	public String getTrainId() {
 		return trainId;
 	}
@@ -52,10 +53,16 @@ public class Train {
 		this.reachedTime = reachedTime;
 	}
 	public String getTrainType() {
-		return TrainType;
+		return trainType;
 	}
 	public void setTrainType(String trainType) {
-		TrainType = trainType;
+		this.trainType = trainType;
+	}
+	public boolean getStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
     
 }

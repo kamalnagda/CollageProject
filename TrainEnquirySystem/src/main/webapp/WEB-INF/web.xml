@@ -80,6 +80,26 @@
   	<url-pattern>/deletetraincontroller</url-pattern>
   </servlet-mapping>
   
+        <!-- get train -->
+  <servlet>
+  	<servlet-name>viewalltrainview</servlet-name>
+  	<jsp-file>/admin/train/viewalltrain.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>viewalltrainview</servlet-name>
+  	<url-pattern>/adminviewalltrain</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>viewalltraincontroller</servlet-name>
+  	<jsp-file>/controller/viewalltraincontroller.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>viewalltraincontroller</servlet-name>
+  	<url-pattern>/viewalltraincontroller</url-pattern>
+  </servlet-mapping>
+  
+  
       <!-- Search train -->
   <servlet>
   	<servlet-name>searchtrain</servlet-name>

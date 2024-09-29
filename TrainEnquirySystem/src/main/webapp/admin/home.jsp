@@ -154,7 +154,7 @@
 	            <a href="addtrain">Add Train</a>
 	            <a href="updatetrain">Update Train</a>
 	            <a href="deletetrain">Delete Train</a>
-	            <a href="#">View Trains</a>
+	            <a href="viewalltraincontroller?source=adminviewalltrain">View Trains</a>
 	        </div>
 	    </div>
 	
@@ -176,12 +176,13 @@
 	    <hr class="sidebar-divider">
 	
 	    <!-- Demo 2 with Collapsible Sub-menu -->
-	    <a href="#demo2SubMenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Demo 2</a>
+	    <a href="#demo2SubMenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Routes</a>
 	    <div class="collapse" id="demo2SubMenu">
 	        <div class="sub-menu">
-	            <a href="#">Demo 2 Item 1</a>
-	            <a href="#">Demo 2 Item 2</a>
-	            <a href="#">Demo 2 Item 3</a>
+	            <a href="addroute">Add Route</a>
+	            <a href="#">Update Route</a>
+	            <a href="#">Delete Route</a>
+	            <a href="#">View Routes</a>
 	        </div>
 	    </div>
 	
